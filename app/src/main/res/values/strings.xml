@@ -5,4 +5,13 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="points">puntos?</string>
+    <string name="can_team_classifier_with">¿Puede el equipo clasificar con</string>
+    <string name="can_team_classifier">¿Puede el equipo clasificar?</string>
+    <string name="team">Equipo</string>
+    <string name="cup">Torneo</string>
+    <string name="country">País</string>
 </resources>
