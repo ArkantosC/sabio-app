@@ -20,21 +20,21 @@ public class Team {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="team_id")
-    private int id;
+    private Long id;
     private String name;
     @ColumnInfo(name="tbl_league_id")
-    private int legueId;
+    private Long legueId;
 
-    public Team(String name, int legueId) {
+    public Team(String name, Long legueId) {
         this.name = name;
         this.legueId = legueId;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -46,11 +46,11 @@ public class Team {
         this.name = name;
     }
 
-    public int getLegueId() {
+    public Long getLegueId() {
         return legueId;
     }
 
-    public void setLegueId(int legueId) {
+    public void setLegueId(Long legueId) {
         this.legueId = legueId;
     }
 }
