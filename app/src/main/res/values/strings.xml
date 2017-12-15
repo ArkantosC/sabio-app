@@ -14,4 +14,9 @@
     <string name="team">Equipo</string>
     <string name="cup">Torneo</string>
     <string name="country">País</string>
+
+
+    <!-- Status messages to be displayed to usee -->
+    <string name="sent_email_recover_password_success">Fue enviado un correo para recupear contraseña.</string>
+
 </resources>
