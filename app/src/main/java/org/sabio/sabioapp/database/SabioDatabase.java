@@ -8,7 +8,10 @@ import android.content.Context;
 import org.sabio.sabioapp.domain.model.entities.Country;
 import org.sabio.sabioapp.domain.model.entities.League;
 import org.sabio.sabioapp.domain.model.entities.Team;
+import org.sabio.sabioapp.repository.impl.CountryLocalRepository;
+import org.sabio.sabioapp.repository.impl.LeagueLocalRepository;
 import org.sabio.sabioapp.repository.impl.SabioLocalRepository;
+import org.sabio.sabioapp.repository.impl.TeamLocalRepository;
 
 /**
  * Created by dcortez on 12/14/2017.
@@ -29,10 +32,10 @@ public abstract class SabioDatabase extends RoomDatabase {
         return db;
     }
 
-    public abstract SabioLocalRepository.CountryDao countryDao();
+    public abstract CountryLocalRepository.CountryDao countryDao();
 
-    public abstract SabioLocalRepository.LeagueDao leagueDao();
+    public abstract LeagueLocalRepository.LeagueDao leagueDao();
 
-    public abstract SabioLocalRepository.TeamDao teamDao();
+    public abstract TeamLocalRepository.TeamDao teamDao();
 
 }

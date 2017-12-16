@@ -11,45 +11,43 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(foreignKeys = {
         @ForeignKey(
                 entity = Country.class,
-                parentColumns = "country_id",
-                childColumns = "tbl_country_id"
+                parentColumns = "id",
+                childColumns = "countryId"
         )
 })
 public class League {
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="league_id")
-    private int id;
-    private int name;
-    @ColumnInfo(name="tbl_country_id")
-    private int countryId;
+    private Long id;
+    private String name;
+    private Long countryId;
 
-    public League(int name, int countryId) {
+    public League(String name, Long countryId) {
         this.name = name;
         this.countryId = countryId;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getCountryId() {
+    public Long getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(int countryId) {
+    public void setCountryId(Long countryId) {
         this.countryId = countryId;
     }
 }

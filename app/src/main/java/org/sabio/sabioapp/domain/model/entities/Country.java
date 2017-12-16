@@ -12,19 +12,18 @@ import android.arch.persistence.room.PrimaryKey;
 public class Country {
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="country_id")
-    private int id;
+    private Long id;
     private String name;
 
     public Country(String name) {
         this.name = name;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -2,17 +2,17 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "71a26b5fb50f2c9c3b623fb75a55387b",
+    "identityHash": "a3e42a201bb101b68a2850ab96e11d66",
     "entities": [
       {
         "tableName": "Country",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`country_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "country_id",
+            "columnName": "id",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "name",
@@ -23,7 +23,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "country_id"
+            "id"
           ],
           "autoGenerate": true
         },
@@ -32,30 +32,30 @@
       },
       {
         "tableName": "League",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`league_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` INTEGER NOT NULL, `tbl_country_id` INTEGER NOT NULL, FOREIGN KEY(`tbl_country_id`) REFERENCES `Country`(`country_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `countryId` INTEGER, FOREIGN KEY(`countryId`) REFERENCES `Country`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "league_id",
+            "columnName": "id",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "name",
             "columnName": "name",
-            "affinity": "INTEGER",
-            "notNull": true
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "countryId",
-            "columnName": "tbl_country_id",
+            "columnName": "countryId",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "league_id"
+            "id"
           ],
           "autoGenerate": true
         },
@@ -66,23 +66,23 @@
             "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
-              "tbl_country_id"
+              "countryId"
             ],
             "referencedColumns": [
-              "country_id"
+              "id"
             ]
           }
         ]
       },
       {
         "tableName": "Team",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`team_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `tbl_league_id` INTEGER NOT NULL, FOREIGN KEY(`tbl_league_id`) REFERENCES `League`(`league_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `leagueId` INTEGER, FOREIGN KEY(`leagueId`) REFERENCES `League`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "team_id",
+            "columnName": "id",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "name",
@@ -91,15 +91,15 @@
             "notNull": false
           },
           {
-            "fieldPath": "legueId",
-            "columnName": "tbl_league_id",
+            "fieldPath": "leagueId",
+            "columnName": "leagueId",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "team_id"
+            "id"
           ],
           "autoGenerate": true
         },
@@ -110,10 +110,10 @@
             "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
-              "tbl_league_id"
+              "leagueId"
             ],
             "referencedColumns": [
-              "league_id"
+              "id"
             ]
           }
         ]
@@ -121,7 +121,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"71a26b5fb50f2c9c3b623fb75a55387b\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a3e42a201bb101b68a2850ab96e11d66\")"
     ]
   }
 }
