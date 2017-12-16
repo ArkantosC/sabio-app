@@ -36,14 +36,15 @@ public class CountryLocalRepository implements ICountryRepository {
         @Query("select * from Country")
         List<Country> getAll();
 
-        @Query("select * from Country where country_id = :id")
+        @Query("select * from Country where id = :id")
         List<Country> getById(Long id);
     }
 
     @Override
     public Long insert(Object entity) {
-        CountryLocalRepository.CountryDao sabioDao = SabioDatabase.getInstance().countryDao();
-        return sabioDao.insert((Country)entity);
+        SabioDatabase instance = SabioDatabase.getInstance();
+        CountryDao countryDao = instance.countryDao();
+        return countryDao.insert((Country)entity);
     }
 
     @Override

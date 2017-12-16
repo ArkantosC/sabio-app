@@ -35,11 +35,11 @@ public class LeagueLocalRepository implements ILeagueRepository {
         @Query("select * from League")
         List<League> getAll();
 
-        @Query("select * from League where league_id = :id")
+        @Query("select * from League where id = :id")
         List<League> getById(Long id);
 
-        @Query("select * from League where tbl_country_id = :countryId")
-        List<Team> getByCountry(Long countryId);
+        @Query("select * from League where countryId = :countryId")
+        List<League> getByCountry(Long countryId);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class LeagueLocalRepository implements ILeagueRepository {
     }
 
     @Override
-    public List<Team> getByCountry(Long countryId) {
+    public List<League> getByCountry(Long countryId) {
         LeagueLocalRepository.LeagueDao sabioDao = SabioDatabase.getInstance().leagueDao();
         return sabioDao.getByCountry(countryId);
     }

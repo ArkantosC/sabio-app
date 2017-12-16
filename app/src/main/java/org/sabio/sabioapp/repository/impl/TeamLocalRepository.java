@@ -33,10 +33,10 @@ public class TeamLocalRepository implements ITeamRepository {
         @Query("select * from Team")
         List<Team> getAll();
 
-        @Query("select * from Team where team_id = :id")
+        @Query("select * from Team where id = :id")
         List<Team> getById(Long id);
 
-        @Query("select * from League where tbl_league_id = :leagueId")
+        @Query("select * from Team where leagueId = :leagueId")
         List<Team> getByLeague(Long leagueId);
     }
 

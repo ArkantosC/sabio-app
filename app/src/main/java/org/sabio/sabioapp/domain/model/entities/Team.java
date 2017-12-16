@@ -12,22 +12,20 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(foreignKeys = {
         @ForeignKey(
                 entity = League.class,
-                parentColumns = "league_id",
-                childColumns = "tbl_league_id"
+                parentColumns = "id",
+                childColumns = "leagueId"
         )
 })
 public class Team {
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="team_id")
     private Long id;
     private String name;
-    @ColumnInfo(name="tbl_league_id")
-    private Long legueId;
+    private Long leagueId;
 
-    public Team(String name, Long legueId) {
+    public Team(String name, Long leagueId) {
         this.name = name;
-        this.legueId = legueId;
+        this.leagueId = leagueId;
     }
 
     public Long getId() {
@@ -46,11 +44,11 @@ public class Team {
         this.name = name;
     }
 
-    public Long getLegueId() {
-        return legueId;
+    public Long getLeagueId() {
+        return leagueId;
     }
 
-    public void setLegueId(Long legueId) {
-        this.legueId = legueId;
+    public void setLeagueId(Long legueId) {
+        this.leagueId = legueId;
     }
 }

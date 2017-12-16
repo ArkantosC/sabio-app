@@ -1,6 +1,7 @@
 package org.sabio.sabioapp.repository;
 
 import org.sabio.sabioapp.domain.model.entities.Country;
+import org.sabio.sabioapp.domain.model.entities.League;
 import org.sabio.sabioapp.domain.model.entities.Team;
 
 import java.util.List;
@@ -11,5 +12,5 @@ import java.util.List;
 
 public interface ILeagueRepository extends IBaseRepository {
 
-    List<Team> getByCountry(Long countryId);
+    List<League> getByCountry(Long countryId);
 }

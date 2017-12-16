@@ -1,8 +1,11 @@
 package org.sabio.sabioapp.domain.usecase;
 
+import android.telecom.Call;
+
 import org.sabio.sabioapp.domain.model.entities.Country;
 import org.sabio.sabioapp.domain.model.entities.League;
 import org.sabio.sabioapp.domain.model.entities.Team;
+import org.sabio.sabioapp.helpers.Callback;
 
 import java.util.List;
 
@@ -12,9 +15,9 @@ import java.util.List;
 
 public interface IAskUseCase {
 
-    List<Country> loadCountries();
-    List<League> loadLeague(Long countryId);
-    List<Team> loadTeam(Long leagueId);
+    void loadCountries(Callback<List<Country>> callback);
+    void loadLeague(Long countryId, Callback<List<League>> callback);
+    void loadTeam(Long leagueId, Callback<List<Team>> callback);
     void askToSabio();
 
 }
