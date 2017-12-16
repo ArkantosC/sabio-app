@@ -18,5 +18,12 @@
 
     <!-- Status messages to be displayed to usee -->
     <string name="sent_email_recover_password_success">Fue enviado un correo para recupear contraseña.</string>
+    <string name="password">Contraseña</string>
+    <string name="email">Email</string>
+    <string name="enter_password_sabio">Ingresa con tu cuenta de Sabio</string>
+    <string name="btn_signIn">Ingresar</string>
+    <string name="I_forget_password">Olvidé mi contraseña</string>
+    <string name="do_you_have_not_account">¿No tienes cuenta?</string>
+    <string name="create_account">Crear una</string>
 
 </resources>

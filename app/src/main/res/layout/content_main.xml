@@ -8,7 +8,7 @@
     tools:context="org.sabio.sabioapp.presentation.view.activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <include layout="@layout/fragment_ask"
+    <include layout="@layout/fragment_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_editor_absoluteY="8dp"
