@@ -25,5 +25,11 @@
     <string name="I_forget_password">Olvidé mi contraseña</string>
     <string name="do_you_have_not_account">¿No tienes cuenta?</string>
     <string name="create_account">Crear una</string>
+    <string name="name_register">Nombre</string>
+    <string name="instruction_to_create_account">LLena estos datos para crear una cuenta con Sabio</string>
+    <string name="lastname_register">Apellido</string>
+    <string name="create_password">Crear contraseña</string>
+    <string name="term_and_conditions">He leído y estoy de acuerdo con los Términos y Condiciones.</string>
+    <string name="create_account_btn">Crear cuenta</string>
 
 </resources>
