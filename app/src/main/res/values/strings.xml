@@ -31,5 +31,7 @@
     <string name="create_password">Crear contraseña</string>
     <string name="term_and_conditions">He leído y estoy de acuerdo con los Términos y Condiciones.</string>
     <string name="create_account_btn">Crear cuenta</string>
+    <string name="send_email">Enviar</string>
+    <string name="message_recover_password">Ingresa tu correo, te enviaremos un enlace para que puedas actualizar tu contraseña</string>
 
 </resources>
