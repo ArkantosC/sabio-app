@@ -1,70 +1,87 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.sabio.sabioapp.presentation.view.fragment.AskFragment">
+    android:orientation="vertical">
 
-    <android.support.constraint.ConstraintLayout
+    <ImageView
+        android:id="@+id/ivBanner"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="190dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/imagenpregunta" />
 
-        <ImageView
-            android:id="@+id/ivBanner"
-            android:layout_width="382dp"
-            android:layout_height="165dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.466"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:text="País"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivBanner" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="País"
+                android:textStyle="bold"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_marginLeft="10dp"/>
 
-        <Spinner
-            android:id="@+id/spnCountry"
-            android:layout_width="294dp"
-            android:layout_height="26dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.741"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/ivBanner" />
+            <Spinner
+                android:id="@+id/spnCountry"
+                android:layout_width="294dp"
+                android:layout_height="26dp" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="50dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
             android:text="Torneo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_marginLeft="10dp"/>
 
         <Spinner
             android:id="@+id/spnLeague"
             android:layout_width="294dp"
-            android:layout_height="26dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/spnCountry" />
+            android:layout_height="26dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Equipo"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_marginLeft="10dp"/>
+
+        <Spinner
+            android:id="@+id/spnTeam"
+            android:layout_width="297dp"
+            android:layout_height="26dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
 
         <RadioGroup
             android:id="@+id/rgAsking"
@@ -72,10 +89,7 @@
             android:layout_height="83dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spnTeam">
+            android:layout_marginTop="16dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -104,7 +118,8 @@
                     android:id="@+id/rbCanTeamClassifierWithPoints"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:shadowColor="#548d45"/>
 
                 <TextView
                     android:id="@+id/tvCanTeamClassifierWithPoints"
@@ -126,52 +141,35 @@
 
         </RadioGroup>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+
         <TextView
             android:id="@+id/tvErrorMessageAsking"
-            android:layout_width="148dp"
-            android:layout_height="21dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.445"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rgAsking" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="error message"
+            android:gravity="center"/>
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:text="Equipo"
-            app:layout_constraintEnd_toStartOf="@+id/spnTeam"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <Spinner
-            android:id="@+id/spnTeam"
-            android:layout_width="297dp"
-            android:layout_height="26dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spnLeague" />
-
-
-    </android.support.constraint.ConstraintLayout>
-
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnAsk"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:layout_margin="10dp"
         android:layout_gravity="bottom"
         android:text="Preguntar a Sabio"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="463dp" />
+        android:textColor="#FFFFFF"
+        android:typeface="serif"
+        android:textSize="20dp"
+        android:background="#548a45"
+        android:textStyle="bold" />
 
-</FrameLayout>
+</LinearLayout>
