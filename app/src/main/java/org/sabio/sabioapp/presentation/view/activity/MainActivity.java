@@ -1,8 +1,12 @@
 package org.sabio.sabioapp.presentation.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,11 +16,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 import org.sabio.sabioapp.R;
+import org.sabio.sabioapp.presentation.presenter.MainActivityContract;
+import org.sabio.sabioapp.presentation.presenter.MainActivityPresenter;
+import org.sabio.sabioapp.presentation.view.fragment.AskFragment;
+import org.sabio.sabioapp.presentation.view.fragment.NewsFragment;
+import org.sabio.sabioapp.presentation.view.fragment.StartFragment;
+import org.sabio.sabioapp.presentation.view.fragment.TriviaFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, MainActivityContract.View {
+
+    private MainActivityContract.UserActionListener mActionListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +46,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mActionListener = new MainActivityPresenter(this);
+
+        goToStartFragment();
+
     }
 
     @Override
@@ -73,6 +91,11 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        if  (id == R.id.nav_send) {
+            mActionListener.exit();
+        }
+
+        /*
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
@@ -85,10 +108,38 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void replaceFragment(Fragment fragment, boolean addToBackStack) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, fragment);
+        if(addToBackStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.commit();
+    }
+
+    public void goToStartFragment() {
+        StartFragment startFragment = StartFragment.getInstance();
+        replaceFragment(startFragment, true);
+    }
+
+    @Override
+    public void goToAuthActivity() {
+        Intent authIntent = new Intent(this, AuthActivity.class);
+        startActivity(authIntent);
+        finish();
+    }
+
+    @Override
+    public void showMessageError(Exception error) {
+        //TODO: como mostrar el error
     }
 }

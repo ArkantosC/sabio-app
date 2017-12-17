@@ -13,13 +13,16 @@ import org.sabio.sabioapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AskFragment extends Fragment {
+public class AskFragment extends BaseFragment {
 
 
     public AskFragment() {
         // Required empty public constructor
     }
 
+    public static AskFragment getInstance() {
+        return new AskFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,5 +30,6 @@ public class AskFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ask, container, false);
     }
+
 
 }

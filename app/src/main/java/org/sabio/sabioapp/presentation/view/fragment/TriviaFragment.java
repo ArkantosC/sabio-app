@@ -13,13 +13,15 @@ import org.sabio.sabioapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TriviaFragment extends Fragment {
-
+public class TriviaFragment extends BaseFragment {
 
     public TriviaFragment() {
         // Required empty public constructor
     }
 
+    public static TriviaFragment getInstance () {
+        return new TriviaFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
