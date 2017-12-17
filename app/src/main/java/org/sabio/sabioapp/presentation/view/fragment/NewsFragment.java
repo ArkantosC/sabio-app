@@ -13,13 +13,16 @@ import org.sabio.sabioapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsFragment extends Fragment {
+public class NewsFragment extends BaseFragment {
 
 
     public NewsFragment() {
         // Required empty public constructor
     }
 
+    public static NewsFragment getInstance() {
+        return new NewsFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

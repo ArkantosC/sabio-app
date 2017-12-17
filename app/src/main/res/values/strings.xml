@@ -36,5 +36,6 @@
     <string name="ask_to_sabio_label">Pregúntele a SABIO</string>
     <string name="sabio_trivia">SABIO Trivia</string>
     <string name="news_sabio">Noticias SABIO</string>
+    <string name="title_activity_auth">AuthActivity</string>
 
 </resources>

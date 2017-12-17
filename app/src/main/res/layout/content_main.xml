@@ -7,7 +7,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="org.sabio.sabioapp.presentation.view.activity.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/main_activity">
 
     <!--
     <include layout="@layout/fragment_login"
@@ -16,98 +17,5 @@
         app:layout_editor_absoluteY="8dp"
         app:layout_editor_absoluteX="8dp"></include>
      -->
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/imagenmenu"/>
-    
-    <LinearLayout
-        android:id="@+id/llAskToSabio"
-        android:layout_margin="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:background="#386464">
-
-        <ImageView
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/iconsabio2"/>
-
-        <TextView
-            android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ask_to_sabio_label"
-            android:textStyle="bold"
-            android:textColor="#eaeaea"
-            android:layout_gravity="center"
-            android:textAppearance="?android:textAppearanceMedium"/>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/llSabioTrivia"
-        android:layout_margin="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:background="#386464">
-
-        <ImageView
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/icontrivia2"/>
-
-        <TextView
-            android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sabio_trivia"
-            android:textStyle="bold"
-            android:textColor="#eaeaea"
-            android:layout_gravity="center"
-            android:textAppearance="?android:textAppearanceMedium"/>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/llNewsSabio"
-        android:layout_margin="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:background="#386464">
-
-        <ImageView
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/iconnews2"/>
-
-        <TextView
-            android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/news_sabio"
-            android:textStyle="bold"
-            android:textColor="#eaeaea"
-            android:layout_gravity="center"
-            android:textAppearance="?android:textAppearanceMedium"/>
-
-    </LinearLayout>
-
 
 </LinearLayout>
