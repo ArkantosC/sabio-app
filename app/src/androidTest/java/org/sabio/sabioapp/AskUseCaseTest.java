@@ -1,15 +1,20 @@
 package org.sabio.sabioapp;
 
+import android.arch.persistence.room.Room;
+import android.content.Context;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.sabio.sabioapp.database.SabioDatabase;
 import org.sabio.sabioapp.domain.model.entities.Country;
 import org.sabio.sabioapp.domain.model.entities.League;
 import org.sabio.sabioapp.domain.model.entities.Team;
 import org.sabio.sabioapp.domain.usecase.impl.AskUseCase;
+import org.sabio.sabioapp.helpers.Callback;
 import org.sabio.sabioapp.repository.ICountryRepository;
 import org.sabio.sabioapp.repository.ILeagueRepository;
 import org.sabio.sabioapp.repository.ITeamRepository;
@@ -30,6 +35,7 @@ import static junit.framework.Assert.assertTrue;
 public class AskUseCaseTest {
 
     private AskUseCase askUseCase;
+    private SabioDatabase db;
 
     @Before
     public void setUp() {
@@ -40,48 +46,76 @@ public class AskUseCaseTest {
     @After
     public void tearDown() {
         askUseCase = null;
-        removeData();
+        db = null;
     }
 
     @Test
     public void testLoadCountries() {
 
-        List<Country> result = askUseCase.loadCountries();
+        askUseCase.loadCountries(new Callback<List<Country>>() {
+            @Override
+            public void success(List<Country> result) {
+                assertNotNull("The result is null", result);
+                assertTrue("The countries must not be empty", result.size() > 0);
+                assertTrue("The country id is not valid", result.get(0).getId() > 0);
+                assertFalse("The country name is not valid", result.get(0).getName().isEmpty());
+            }
 
-        assertNotNull("The result is null", result);
-        assertTrue("The countries must not be empty", result.size() > 0);
-        assertTrue("The country id is not valid", result.get(0).getId() > 0);
-        assertFalse("The country name is not valid", result.get(0).getName().isEmpty());
+            @Override
+            public void error(Exception error) {
+                assertTrue("An exception has occurred",false);
+            }
+        });
+
     }
-/*
+
     @Test
     public void testLoadLeague() {
 
-        List<Country> countries = askUseCase.loadCountries();
-        List<League> result = askUseCase.loadLeague(countries.get(0).getId());
+        askUseCase.loadLeague(1L, new Callback<List<League>>() {
+            @Override
+            public void success(List<League> result) {
+                assertNotNull("The result is null", result);
+                assertTrue("The league must not be empty", result.size() > 0);
+                assertTrue("The league id is not valid", result.get(0).getId() > 0);
+                assertFalse("The league name is not valid", result.get(0).getName().isEmpty());
+            }
 
-        assertNotNull("The result is null", result);
-        assertTrue("The league must not be empty", result.size() > 0);
-        assertTrue("The league id is not valid", result.get(0).getId() > 0);
-        assertFalse("The league name is not valid", result.get(0).getName().isEmpty());
+            @Override
+            public void error(Exception error) {
+                assertTrue("An exception has occurred",false);
+            }
+        });
     }
 
     @Test
     public void testLoadTeam() {
 
-        List<Country> countries = askUseCase.loadCountries();
-        List<League> leagues = askUseCase.loadLeague(countries.get(0).getId());
-        List<Team> result = askUseCase.loadTeam(leagues.get(1).getId());
+        askUseCase.loadTeam(2L, new Callback<List<Team>>() {
+            @Override
+            public void success(List<Team> result) {
+                assertNotNull("The result is null" + result);
+                assertTrue("The teams must not be empty", result.size() > 0);
+                assertTrue("The team is is not valid", result.get(0).getId() > 0);
+                assertFalse("The team name is not valid", result.get(0).getName().isEmpty());
+            }
 
-        assertNotNull("The result is null" + result);
-        assertTrue("The teams must not be empty", result.size() > 0);
-        assertTrue("The team is is not valid", result.get(0).getId() > 0);
-        assertFalse("The team name is not valid", result.get(0).getName().isEmpty());
+            @Override
+            public void error(Exception error) {
+                assertTrue("An exception has occurred",false);
+            }
+        });
     }
-*/
+
     private void supplyData() {
 
+        Context context = InstrumentationRegistry.getTargetContext();
+        db = Room.inMemoryDatabaseBuilder(context, SabioDatabase.class).build();
+
+        SabioDatabase.setInjectedInstance(db);
+
         ICountryRepository countrySabioRepository = new CountryLocalRepository();
+
         Long idColombia = countrySabioRepository.insert(new Country("Colombia"));
         Long idEspana = countrySabioRepository.insert(new Country("España"));
         Long idInglaterra = countrySabioRepository.insert(new Country("Inglaterra"));
@@ -114,12 +148,4 @@ public class AskUseCaseTest {
         teamRepository.insert(new Team("Tottenham", idPremier));
 
     }
-
-    private void removeData() {
-/*
-        ITeamRepository teamRepository = new TeamLocalRepository();
-        teamRepository.getAll();
-*/
-    }
-
 }
