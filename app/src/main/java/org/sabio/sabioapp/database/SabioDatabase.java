@@ -38,4 +38,8 @@ public abstract class SabioDatabase extends RoomDatabase {
 
     public abstract TeamLocalRepository.TeamDao teamDao();
 
+    public static void setInjectedInstance(SabioDatabase injectedDb) {
+        db = injectedDb;
+    }
+
 }
