@@ -18,7 +18,7 @@ public class SharedPreferencesUtil {
 
     public static SharedPreferences getSharedPreferences() {
         if ( sp == null) {
-            sp = context.getSharedPreferences(Constant.MY_SABIO_PREF, Context.MODE_PRIVATE);
+            sp = context.getSharedPreferences(Constant.MY_SHARED_PREF, Context.MODE_PRIVATE);
         }
         return sp;
     }

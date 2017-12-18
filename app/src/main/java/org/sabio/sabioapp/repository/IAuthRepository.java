@@ -9,7 +9,7 @@ import org.sabio.sabioapp.helpers.Callback;
 
 public interface IAuthRepository {
 
-    void login(String email, String password, final Callback callback);
-    void signUp(final User user, final Callback callback);
-    void recoverPassword(String email, final Callback callback);
+    void login(String email, String password, final Callback<User> callback);
+    void signUp(final User user, final Callback<User> callback);
+    void recoverPassword(String email, final Callback<Boolean> callback);
 }

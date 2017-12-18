@@ -15,7 +15,6 @@ import java.util.Map;
 
 public class LocalDataRepository implements ILocalDataRepository {
 
-
     @Override
     public <T> boolean setData(String key, T value) throws Exception {
         SharedPreferences sharedPreferences = SharedPreferencesUtil.getSharedPreferences();
@@ -23,11 +22,18 @@ public class LocalDataRepository implements ILocalDataRepository {
 
         if (value == null) {
             editor.remove(key);
-        } else if (value instanceof Boolean) {
+        } else if(value instanceof Boolean) {
             editor.putBoolean(key, (Boolean) value);
-        } else if (value instanceof String) {
+        } else if(value instanceof Float) {
+            editor.putFloat(key, (Float) value);
+        } else if(value instanceof Integer) {
+            editor.putInt(key, (Integer) value);
+        } else if(value instanceof Long) {
+            editor.putLong(key, (Long) value);
+        } else if(value instanceof String) {
             editor.putString(key, (String) value);
         }
+
         return editor.commit();
     }
 
