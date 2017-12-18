@@ -30,7 +30,7 @@ public class AuthFirebaseRepository implements IAuthRepository {
     }
 
     @Override
-    public void login(String email, String password, final Callback callback) {
+    public void login(String email, String password, final Callback<User> callback) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -55,7 +55,7 @@ public class AuthFirebaseRepository implements IAuthRepository {
     }
 
     @Override
-    public void signUp(final User user, final Callback callback) {
+    public void signUp(final User user, final Callback<User> callback) {
         mAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -82,13 +82,13 @@ public class AuthFirebaseRepository implements IAuthRepository {
     }
 
     @Override
-    public void recoverPassword(String email, final Callback callback) {
+    public void recoverPassword(String email, final Callback<Boolean> callback) {
         mAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            callback.success(null);
+                            callback.success(true);
                         } else {
                             callback.error(task.getException());
                         }
