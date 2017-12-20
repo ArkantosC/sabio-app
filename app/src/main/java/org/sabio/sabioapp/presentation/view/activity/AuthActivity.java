@@ -25,8 +25,11 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.authToolbar);
-        setSupportActionBar(toolbar);
+
+
+
+
+
 
         mActionListner = new AuthPresenter(this);
         mActionListner.goToFirstFragment();

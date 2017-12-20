@@ -3,27 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/estadio">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/instruction_to_create_account"
+        android:textStyle="bold"
         android:gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/common_google_signin_btn_text_dark"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/tilNameRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="15dp"
+        android:background="#FFFFFF">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name_register"
-            android:textColorHint="#548a45"/>
+            android:textColorHint="#548a45"
+            android:textColor="#548a45"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -31,13 +36,15 @@
         android:id="@+id/tilLastnameRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="15dp"
+        android:background="#FFFFFF">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/lastname_register"
-            android:textColorHint="#548a45"/>
+            android:textColorHint="#548a45"
+            android:textColor="#548a45"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -45,13 +52,15 @@
         android:id="@+id/tilEmailRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="15dp"
+        android:background="#FFFFFF">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:textColorHint="#548a45"/>
+            android:textColorHint="#548a45"
+            android:textColor="#548a45"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -59,13 +68,15 @@
         android:id="@+id/tilPasswordRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="15dp"
+        android:background="#FFFFFF">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/create_password"
             android:textColorHint="#548a45"
+            android:textColor="#548a45"
             android:inputType="textPassword"/>
 
     </android.support.design.widget.TextInputLayout>
@@ -75,7 +86,8 @@
         android:id="@+id/tilTerminosCondiciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="15dp"
+        android:background="#FFFFFF">
 
         <CheckBox
             android:id="@+id/cbTerminosCondiciones"
@@ -97,7 +109,7 @@
         android:text="@string/create_account_btn"
         android:textColor="#FFFFFF"
         android:typeface="serif"
-        android:background="#548a45"
+        android:background="@drawable/round_border"
         android:textStyle="bold"/>
 
 </LinearLayout>
