@@ -18,7 +18,7 @@
         android:layout_height="58dp"
         android:orientation="horizontal"
         android:layout_marginBottom="5dp"
-        android:background="#386464">
+        android:background="#548a45">
 
         <ImageView
             android:layout_marginTop="3dp"
@@ -47,7 +47,7 @@
         android:layout_height="58dp"
         android:orientation="horizontal"
         android:layout_marginBottom="5dp"
-        android:background="#386464">
+        android:background="#548a45">
 
         <ImageView
             android:layout_marginTop="3dp"
@@ -76,7 +76,7 @@
         android:layout_height="58dp"
         android:orientation="horizontal"
         android:layout_marginBottom="5dp"
-        android:background="#386464">
+        android:background="#548a45">
 
         <ImageView
             android:layout_marginTop="3dp"
