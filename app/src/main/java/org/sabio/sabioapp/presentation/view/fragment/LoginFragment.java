@@ -77,7 +77,7 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
     @Override
     public void goToSignUpFragment() {
         AuthActivity authActivity = (AuthActivity) getActivity();
-        authActivity.replaceFragment(SignUpFragment.getInstance(), true); //TODO: Registrar
+        authActivity.replaceFragment(SignUpFragment.getInstance(), true);
     }
 
     @Override
@@ -88,6 +88,11 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
 
     @Override
     public void goToMainActivity() {
+
+        mActionListener.loadCountries();
+        mActionListener.loadLeagues();
+        mActionListener.loadTeams();
+
         Intent intentMainActivity = new Intent(getContext(), MainActivity.class);
         startActivity(intentMainActivity);
         getActivity().finish();

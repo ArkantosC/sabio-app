@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface ITeamRepository extends IBaseRepository {
 
-    List<Team> getByLeague(Long leagueId);
+    List<Team> getByLeague(String league);
 }

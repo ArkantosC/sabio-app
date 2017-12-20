@@ -13,6 +13,5 @@ public interface StartContract {
     }
 
     interface UserActionListener {
-
     }
 }

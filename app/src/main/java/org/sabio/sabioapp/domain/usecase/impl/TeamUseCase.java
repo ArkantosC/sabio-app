@@ -38,7 +38,7 @@ public class TeamUseCase implements ITeamUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
@@ -62,7 +62,7 @@ public class TeamUseCase implements ITeamUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
     }
 
     @Override
@@ -85,7 +85,7 @@ public class TeamUseCase implements ITeamUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
     }
 
     @Override
@@ -107,7 +107,7 @@ public class TeamUseCase implements ITeamUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
@@ -130,19 +130,19 @@ public class TeamUseCase implements ITeamUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
     @Override
-    public void getByLeague(final Long leagueId, final Callback<List<Team>> callback) {
+    public void getByLeague(final String league, final Callback<List<Team>> callback) {
 
         new ThreadExecutor<List<Team>>(new ThreadExecutor.Task<List<Team>>() {
             @Override
             public List<Team> execute() throws Exception {
 
                 ITeamRepository teamRepository = new TeamLocalRepository();
-                return teamRepository.getByLeague(leagueId);
+                return teamRepository.getByLeague(league);
             }
 
             @Override
@@ -153,7 +153,7 @@ public class TeamUseCase implements ITeamUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 }

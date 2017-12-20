@@ -6,7 +6,7 @@ package org.sabio.sabioapp.presentation.presenter;
 
 public interface AuthContract {
 
-    interface View {
+    interface View extends BaseView {
         void goToLoginFragment();
         void goToMainActivity();
     }

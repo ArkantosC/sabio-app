@@ -8,21 +8,17 @@ import android.arch.persistence.room.PrimaryKey;
 /**
  * Created by dcortez on 12/14/2017.
  */
-@Entity(foreignKeys = {
-        @ForeignKey(
-                entity = Country.class,
-                parentColumns = "id",
-                childColumns = "countryId"
-        )
-})
+@Entity
 public class League {
 
     @PrimaryKey(autoGenerate = true)
     private Long id;
+    private String code;
     private String name;
-    private Long countryId;
+    private String countryId;
 
-    public League(String name, Long countryId) {
+    public League(String code, String name, String countryId) {
+        this.code = code;
         this.name = name;
         this.countryId = countryId;
     }
@@ -43,11 +39,24 @@ public class League {
         this.name = name;
     }
 
-    public Long getCountryId() {
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(Long countryId) {
+    public void setCountryId(String countryId) {
         this.countryId = countryId;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

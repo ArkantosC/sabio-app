@@ -36,7 +36,7 @@ public class LeagueUseCase implements ILeagueUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
@@ -60,7 +60,7 @@ public class LeagueUseCase implements ILeagueUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
@@ -84,7 +84,7 @@ public class LeagueUseCase implements ILeagueUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
@@ -107,7 +107,7 @@ public class LeagueUseCase implements ILeagueUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
     }
 
     @Override
@@ -129,18 +129,18 @@ public class LeagueUseCase implements ILeagueUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
     }
 
     @Override
-    public void getByCountry(final Long countryId, final Callback<List<League>> callback) {
+    public void getByCountry(final String country, final Callback<List<League>> callback) {
 
         new ThreadExecutor<List<League>>(new ThreadExecutor.Task<List<League>>() {
             @Override
             public List<League> execute() throws Exception {
 
                 ILeagueRepository leagueRepository = new LeagueLocalRepository();
-                return leagueRepository.getByCountry(countryId);
+                return leagueRepository.getByCountry(country);
             }
 
             @Override
@@ -151,6 +151,6 @@ public class LeagueUseCase implements ILeagueUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
     }
 }

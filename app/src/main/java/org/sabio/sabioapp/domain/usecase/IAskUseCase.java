@@ -16,8 +16,8 @@ import java.util.List;
 public interface IAskUseCase {
 
     void loadCountries(Callback<List<Country>> callback);
-    void loadLeague(Long countryId, Callback<List<League>> callback);
-    void loadTeam(Long leagueId, Callback<List<Team>> callback);
+    void loadLeague(String countryCode, Callback<List<League>> callback);
+    void loadTeam(String leagueCode, Callback<List<Team>> callback);
     void askToSabio();
 
 }

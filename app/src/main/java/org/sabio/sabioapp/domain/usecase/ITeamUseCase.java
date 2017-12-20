@@ -19,5 +19,5 @@ public interface ITeamUseCase {
     void delete(Team team, Callback<Boolean> callback);
     void getAll(Callback<List<Team>> callback);
     void getById(Long id, Callback<List<Team>> callback);
-    void getByLeague(Long leagueId, Callback<List<Team>> callback);
+    void getByLeague(String league, Callback<List<Team>> callback);
 }
