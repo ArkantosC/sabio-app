@@ -12,5 +12,5 @@ import java.util.List;
 
 public interface ILeagueRepository extends IBaseRepository {
 
-    List<League> getByCountry(Long countryId);
+    List<League> getByCountry(String country);
 }

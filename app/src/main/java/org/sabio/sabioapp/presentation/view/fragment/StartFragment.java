@@ -3,9 +3,11 @@ package org.sabio.sabioapp.presentation.view.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import org.sabio.sabioapp.R;
 import org.sabio.sabioapp.presentation.presenter.StartContract;
+import org.sabio.sabioapp.presentation.presenter.StartPresenter;
 import org.sabio.sabioapp.presentation.view.activity.AuthActivity;
 
 /**
@@ -21,6 +24,7 @@ import org.sabio.sabioapp.presentation.view.activity.AuthActivity;
  */
 public class StartFragment extends BaseFragment implements View.OnClickListener, StartContract.View {
 
+    private StartContract.UserActionListener mActionListener;
     private LinearLayout llAskToSabio;
     private LinearLayout llSabioTrivia;
     private LinearLayout llNewsSabio;
@@ -46,6 +50,8 @@ public class StartFragment extends BaseFragment implements View.OnClickListener,
         llSabioTrivia.setOnClickListener(this);
         llNewsSabio.setOnClickListener(this);
 
+        mActionListener = new StartPresenter(this);
+        
         return view;
     }
 
@@ -64,7 +70,6 @@ public class StartFragment extends BaseFragment implements View.OnClickListener,
         }
     }
 
-
     public void replaceFragment(Fragment fragment, int contentViewerId, boolean addToBackStack) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
@@ -78,7 +83,7 @@ public class StartFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void showMessageError(Exception error) {
-        //TODO: como comostar el error
+        Snackbar.make(getView(), error.getMessage(), Snackbar.LENGTH_LONG);
     }
 
     @Override

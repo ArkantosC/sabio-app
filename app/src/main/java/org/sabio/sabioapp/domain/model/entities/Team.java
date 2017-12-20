@@ -9,23 +9,19 @@ import android.arch.persistence.room.PrimaryKey;
  * Created by diegocortes on 12/14/17.
  */
 
-@Entity(foreignKeys = {
-        @ForeignKey(
-                entity = League.class,
-                parentColumns = "id",
-                childColumns = "leagueId"
-        )
-})
+@Entity
 public class Team {
 
     @PrimaryKey(autoGenerate = true)
     private Long id;
+    private String code;
     private String name;
-    private Long leagueId;
+    private String league;
 
-    public Team(String name, Long leagueId) {
+    public Team(String code, String name, String league) {
+        this.code = code;
         this.name = name;
-        this.leagueId = leagueId;
+        this.league = league;
     }
 
     public Long getId() {
@@ -44,11 +40,23 @@ public class Team {
         this.name = name;
     }
 
-    public Long getLeagueId() {
-        return leagueId;
+    public String getLeague() {
+        return league;
+    }
+    public void setLeague(String league) {
+        this.league = league;
     }
 
-    public void setLeagueId(Long legueId) {
-        this.leagueId = legueId;
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

@@ -35,7 +35,7 @@ public class CountryUseCase implements ICountryUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
@@ -60,7 +60,7 @@ public class CountryUseCase implements ICountryUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
@@ -84,7 +84,7 @@ public class CountryUseCase implements ICountryUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
@@ -107,7 +107,7 @@ public class CountryUseCase implements ICountryUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 
@@ -130,7 +130,7 @@ public class CountryUseCase implements ICountryUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 }

@@ -35,6 +35,7 @@ public class UserUseCase implements IUserUseCase {
                     }
 
                     localDataUseCase.setData(Constant.SHARED_PREF_IS_AUTH, true);
+                    localDataUseCase.setData(Constant.SETUP_DATA, true);
                     callback.success(user);
 
                 } catch (Exception e) {

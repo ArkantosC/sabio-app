@@ -17,6 +17,9 @@ public interface LoginContract {
 
     interface UserActionListener {
         void onLogin(final String email, String password, final boolean remember);
+        void loadCountries();
+        void loadLeagues();
+        void loadTeams();
         void configure();
     }
 }

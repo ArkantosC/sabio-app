@@ -36,8 +36,8 @@ public class TeamLocalRepository implements ITeamRepository {
         @Query("select * from Team where id = :id")
         List<Team> getById(Long id);
 
-        @Query("select * from Team where leagueId = :leagueId")
-        List<Team> getByLeague(Long leagueId);
+        @Query("select * from Team where league = :leagueCode")
+        List<Team> getByLeague(String leagueCode);
     }
 
     @Override
@@ -71,8 +71,8 @@ public class TeamLocalRepository implements ITeamRepository {
     }
 
     @Override
-    public List<Team> getByLeague(Long leagueId) {
+    public List<Team> getByLeague(String league) {
         TeamLocalRepository.TeamDao sabioDao = SabioDatabase.getInstance().teamDao();
-        return sabioDao.getByLeague(leagueId);
+        return sabioDao.getByLeague(league);
     }
 }

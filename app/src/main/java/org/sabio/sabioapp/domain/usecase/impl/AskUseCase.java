@@ -21,6 +21,18 @@ import java.util.List;
 
 public class AskUseCase implements IAskUseCase {
 
+    private ICountryRepository countrySabioRepository;
+    private ILeagueRepository leagueRepository;
+    private ITeamRepository teamRepository;
+
+    public AskUseCase() {
+
+        this.countrySabioRepository = new CountryLocalRepository();
+        this.leagueRepository = new LeagueLocalRepository();
+        this.teamRepository = new TeamLocalRepository();
+
+    }
+
     @Override
     public void loadCountries(final Callback<List<Country>> callback) {
 
@@ -28,7 +40,6 @@ public class AskUseCase implements IAskUseCase {
             @Override
             public List<Country> execute() throws Exception {
 
-                ICountryRepository countrySabioRepository = new CountryLocalRepository();
                 return countrySabioRepository.getAll();
             }
 
@@ -40,17 +51,16 @@ public class AskUseCase implements IAskUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
     }
 
     @Override
-    public void loadLeague(final Long countryId, final Callback<List<League>> callback) {
+    public void loadLeague(final String countryCode, final Callback<List<League>> callback) {
 
         new ThreadExecutor<List<League>>(new ThreadExecutor.Task<List<League>>() {
             @Override
             public List<League> execute() throws Exception {
-                ILeagueRepository leagueRepository = new LeagueLocalRepository();
-                return leagueRepository.getById(countryId);
+                return leagueRepository.getByCountry(countryCode);
             }
 
             @Override
@@ -61,18 +71,17 @@ public class AskUseCase implements IAskUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
     }
 
     @Override
-    public void loadTeam(final Long leagueId, final Callback<List<Team>> callback) {
+    public void loadTeam(final String leagueCode, final Callback<List<Team>> callback) {
 
         new ThreadExecutor<List<Team>>(new ThreadExecutor.Task<List<Team>>() {
             @Override
             public List<Team> execute() throws Exception {
 
-                ITeamRepository teamRepository = new TeamLocalRepository();
-                return teamRepository.getById(leagueId);
+                return teamRepository.getByLeague(leagueCode);
             }
 
             @Override
@@ -83,7 +92,7 @@ public class AskUseCase implements IAskUseCase {
                     callback.success(result);
                 }
             }
-        });
+        }).execute();
 
     }
 

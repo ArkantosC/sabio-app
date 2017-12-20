@@ -29,8 +29,6 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
         setSupportActionBar(toolbar);
 
         mActionListner = new AuthPresenter(this);
-
-        SharedPreferencesUtil.init(getApplicationContext());
         mActionListner.goToFirstFragment();
     }
 
@@ -52,8 +50,14 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
 
     @Override
     public void goToMainActivity() {
+
         Intent intentMainActivity  = new Intent(this, MainActivity.class);
         startActivity(intentMainActivity);
         finish();
+    }
+
+    @Override
+    public void showMessageError(Exception error) {
+        //TODO:Mostrar error.
     }
 }

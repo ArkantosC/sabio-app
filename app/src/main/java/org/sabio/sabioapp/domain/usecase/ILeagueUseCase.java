@@ -18,5 +18,5 @@ public interface ILeagueUseCase {
     void delete(League league, Callback<Boolean> callback);
     void getAll(Callback<List<League>> callback);
     void getById(Long id, Callback<List<League>> callback);
-    void getByCountry(Long countryId, Callback<List<League>> callback);
+    void getByCountry(String country, Callback<List<League>> callback);
 }
