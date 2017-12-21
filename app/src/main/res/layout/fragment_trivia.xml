@@ -1,15 +1,79 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.sabio.sabioapp.presentation.view.fragment.TriviaFragment">
+    tools:context="org.sabio.sabioapp.presentation.view.fragment.TriviaFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="#2E4053"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="0dp">
+
+        <TextView
+        android:id="@+id/tvQuestion"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-    
+        android:text="Pregunta?"
+        android:textColor="#548a45"
+        android:textStyle="bold"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceMedium"
+        android:layout_marginBottom="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="25dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvScore"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="0"
+            android:gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:background="#548a45"
+            style="bold"/>
+
+        <TextView
+            android:id="@+id/tvlabelScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="puntos"
+            android:gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:background="#548a45"
+            style="bold"/>
+
+    </LinearLayout>
 
 
-</FrameLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvTriviaList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btnNextQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="bottom"
+        android:text="@string/next_question"
+        android:textColor="#FFFFFF"
+        android:typeface="serif"
+        android:textSize="20dp"
+        android:background="@drawable/round_border"
+        android:textStyle="bold"/>
+
+</LinearLayout>

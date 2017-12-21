@@ -153,4 +153,25 @@ public class LeagueUseCase implements ILeagueUseCase {
             }
         }).execute();
     }
+
+    @Override
+    public void getByLeague(final String code, final Callback<League> callback) {
+        new ThreadExecutor<League>(new ThreadExecutor.Task<League>() {
+            @Override
+            public League execute() throws Exception {
+
+                ILeagueRepository leagueRepository = new LeagueLocalRepository();
+                return leagueRepository.getLeagueByCode(code);
+            }
+
+            @Override
+            public void finish(Exception error, League result) {
+                if (error != null) {
+                    callback.error(error);
+                } else {
+                    callback.success(result);
+                }
+            }
+        }).execute();
+    }
 }

@@ -41,7 +41,6 @@ public class LeagueRestRepository implements ILeagueRepository {
 
     }
 
-
     @Override
     public Long insert(Object entity) {
         return null;
@@ -78,6 +77,11 @@ public class LeagueRestRepository implements ILeagueRepository {
 
     @Override
     public List<League> getByCountry(String country) {
+        return null;
+    }
+
+    @Override
+    public League getLeagueByCode(String code) {
         return null;
     }
 }
