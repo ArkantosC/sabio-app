@@ -1,6 +1,7 @@
 package org.sabio.sabioapp.presentation.view.fragment;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -58,10 +59,14 @@ public class ResponseFragment extends BaseFragment implements ResponseContract.V
         cabecera = (TableLayout) view.findViewById(R.id.cabecera);
         layoutFila = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                 TableRow.LayoutParams.WRAP_CONTENT);
-        layoutPosicion = new TableRow.LayoutParams(70,TableRow.LayoutParams.WRAP_CONTENT);
-        layoutEquipo = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,TableRow.LayoutParams.WRAP_CONTENT);
-        layoutPTOS = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,TableRow.LayoutParams.WRAP_CONTENT);
+        layoutPosicion = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,TableRow.LayoutParams.WRAP_CONTENT);
+        layoutEquipo = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,TableRow.LayoutParams.WRAP_CONTENT);
+        layoutPTOS = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,TableRow.LayoutParams.WRAP_CONTENT);
         tvQualificationMessage = view.findViewById(R.id.tvQualificationMessage);
+
+        layoutPosicion.setMargins(30,30,30,30);
+        layoutEquipo.setMargins(30,30,30,30);
+        layoutPTOS.setMargins(30,30,30,30);
 
         mActionListener.loadResponse();
 
@@ -77,7 +82,6 @@ public class ResponseFragment extends BaseFragment implements ResponseContract.V
         TextView txtPtos;
         TextView txtEquipo;
 
-       // fila =
         fila.setLayoutParams(layoutFila);
 
         txtPosicion = new TextView(getActivity());
@@ -86,20 +90,20 @@ public class ResponseFragment extends BaseFragment implements ResponseContract.V
 
         txtPosicion.setText("Posición");
         txtPosicion.setGravity(Gravity.CENTER_HORIZONTAL);
-        //txtId.setTextAppearance(this,R.style.etiqueta);
-        //txtId.setBackgroundResource(R.drawable.tabla_celda_cabecera);
+        txtPosicion.setTextColor(Color.WHITE);
+        txtPosicion.setBackgroundColor(Color.BLACK);
         txtPosicion.setLayoutParams(layoutPosicion);
 
         txtEquipo.setText("Equipo");
         txtEquipo.setGravity(Gravity.CENTER_HORIZONTAL);
-       // txtNombre.setTextAppearance(this,R.style.etiqueta);
-        //txtNombre.setBackgroundResource(R.drawable.tabla_celda_cabecera);
+        txtEquipo.setTextColor(Color.WHITE);
+        txtEquipo.setBackgroundColor(Color.BLACK);
         txtEquipo.setLayoutParams(layoutEquipo);
 
         txtPtos.setText("PTS");
         txtPtos.setGravity(Gravity.CENTER_HORIZONTAL);
-        // txtNombre.setTextAppearance(this,R.style.etiqueta);
-        //txtNombre.setBackgroundResource(R.drawable.tabla_celda_cabecera);
+        txtPtos.setTextColor(Color.WHITE);
+        txtPtos.setBackgroundColor(Color.BLACK);
         txtPtos.setLayoutParams(layoutPTOS);
 
         fila.addView(txtPosicion);
@@ -146,10 +150,10 @@ public class ResponseFragment extends BaseFragment implements ResponseContract.V
             txtEquipo.setLayoutParams(layoutEquipo);
 
             txtPtos.setText(position.getScore());
-            txtEquipo.setGravity(Gravity.CENTER_HORIZONTAL);
+            txtPtos.setGravity(Gravity.CENTER_HORIZONTAL);
             // txtEquipo.setTextAppearance(this,R.style.etiqueta);
             //txtEquipo.setBackgroundResource(R.drawable.tabla_celda);
-            txtEquipo.setLayoutParams(layoutPTOS);
+            txtPtos.setLayoutParams(layoutPTOS);
 
             
             fila.addView(txtPosicion);
