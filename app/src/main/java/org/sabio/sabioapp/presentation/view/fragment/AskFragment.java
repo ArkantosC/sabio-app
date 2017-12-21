@@ -4,6 +4,8 @@ package org.sabio.sabioapp.presentation.view.fragment;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +38,9 @@ public class AskFragment extends BaseFragment implements AskContract.View, View.
     private Spinner spnLeague;
     private Spinner spnTeam;
     private Button btnAsk;
+
+    private String league;
+    private String team;
 
     public AskFragment() {
         // Required empty public constructor
@@ -78,14 +83,24 @@ public class AskFragment extends BaseFragment implements AskContract.View, View.
         return view;
     }
 
-    @Override
-    public void goToResultTable() {
-        //TODO: Go to another fragment
+    public void replaceFragment(Fragment fragment, int contentViewerId, boolean addToBackStack) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(contentViewerId, fragment);
+        if(addToBackStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.commit();
     }
 
     @Override
-    public void goToQualificationTable() {
-        //TODO: Go to another fragment
+    public void goToResultTable() {
+
+        ResponseFragment fragment = ResponseFragment.getInstance();
+        fragment.setLeagueStr(league);
+        fragment.setTeamStr(team);
+        replaceFragment(fragment, R.id.main_activity, true);
     }
 
     @Override
@@ -103,8 +118,12 @@ public class AskFragment extends BaseFragment implements AskContract.View, View.
                 break;
             case R.id.spnLeague:
                 League league = (League) adapterView.getItemAtPosition(i);
+                this.league = league.getCode();
                 showTeam(league.getCode());
                 break;
+            case R.id.spnTeam:
+                Team team = (Team) adapterView.getItemAtPosition(i);
+                this.team = team.getCode();
         }
     }
 
@@ -140,12 +159,14 @@ public class AskFragment extends BaseFragment implements AskContract.View, View.
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 
     @Override
     public void onClick(View view) {
-
+        switch (view.getId()) {
+            case R.id.btnAsk:
+                goToResultTable();
+                break;
+        }
     }
-
 }
