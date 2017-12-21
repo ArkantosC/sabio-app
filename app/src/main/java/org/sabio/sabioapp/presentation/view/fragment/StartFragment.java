@@ -94,7 +94,7 @@ public class StartFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void goToTrivia() {
-        TriviaFragment fragment = TriviaFragment.getInstance();
+        TriviaListFragment fragment = TriviaListFragment.getInstance();
         replaceFragment(fragment, R.id.main_activity, true);
     }
 

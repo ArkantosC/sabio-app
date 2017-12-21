@@ -13,4 +13,5 @@ import java.util.List;
 public interface ILeagueRepository extends IBaseRepository {
 
     List<League> getByCountry(String country);
+    League getLeagueByCode(String code);
 }

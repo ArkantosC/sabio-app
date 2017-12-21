@@ -19,4 +19,5 @@ public interface ILeagueUseCase {
     void getAll(Callback<List<League>> callback);
     void getById(Long id, Callback<List<League>> callback);
     void getByCountry(String country, Callback<List<League>> callback);
+    void getByLeague(String code, Callback<League> callback);
 }
