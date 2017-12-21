@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.sabio.sabioapp.R;
@@ -28,6 +29,7 @@ public class StartFragment extends BaseFragment implements View.OnClickListener,
     private LinearLayout llAskToSabio;
     private LinearLayout llSabioTrivia;
     private LinearLayout llNewsSabio;
+    private ProgressBar pbStartProgressBar;
 
     public StartFragment() {
         // Required empty public constructor
@@ -45,6 +47,7 @@ public class StartFragment extends BaseFragment implements View.OnClickListener,
         llAskToSabio = view.findViewById(R.id.llAskToSabio);
         llSabioTrivia = view.findViewById(R.id.llSabioTrivia);
         llNewsSabio = view.findViewById(R.id.llNewsSabio);
+        pbStartProgressBar = view.findViewById(R.id.pbStartProgressBar);
 
         llAskToSabio.setOnClickListener(this);
         llSabioTrivia.setOnClickListener(this);
@@ -71,6 +74,8 @@ public class StartFragment extends BaseFragment implements View.OnClickListener,
     }
 
     public void replaceFragment(Fragment fragment, int contentViewerId, boolean addToBackStack) {
+
+        pbStartProgressBar.setVisibility(View.VISIBLE);
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -79,6 +84,7 @@ public class StartFragment extends BaseFragment implements View.OnClickListener,
             fragmentTransaction.addToBackStack(null);
         }
         fragmentTransaction.commit();
+        pbStartProgressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -100,6 +106,7 @@ public class StartFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void goToNews() {
+
         NewsFragment fragment = NewsFragment.getInstance();
         replaceFragment(fragment, R.id.main_activity, true);
     }

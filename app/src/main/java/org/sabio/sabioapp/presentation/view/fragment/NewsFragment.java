@@ -43,7 +43,7 @@ public class NewsFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_news, container, false);
 
-         rvNewsSabio = view.findViewById(R.id.rvNewsSabios);
+        rvNewsSabio = view.findViewById(R.id.rvNewsSabios);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

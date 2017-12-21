@@ -14,7 +14,6 @@ public interface AskContract {
 
     interface View {
         void goToResultTable();
-        void goToQualificationTable();
         void showMessageError(Exception error);
     }
 

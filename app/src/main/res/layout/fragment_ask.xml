@@ -77,85 +77,20 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp">
-
-        <RadioGroup
-            android:id="@+id/rgAsking"
-            android:layout_width="308dp"
-            android:layout_height="83dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/rbCanTeamClassifier"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/tvCanTeamClassifier"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/can_team_classifier" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/rbCanTeamClassifierWithPoints"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:shadowColor="#548d45"/>
-
-                <TextView
-                    android:id="@+id/tvCanTeamClassifierWithPoints"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/can_team_classifier_with" />
-
-                <EditText
-                    android:id="@+id/etXPuntos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/points" />
-
-            </LinearLayout>
-
-        </RadioGroup>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
-
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/tvErrorMessageAsking"
+            android:id="@+id/tvCanTeamClassifier"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="error message"
-            android:gravity="center"/>
+            android:layout_height="wrap_content"
+            android:text="@string/can_team_classifier"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"/>
 
     </LinearLayout>
 
